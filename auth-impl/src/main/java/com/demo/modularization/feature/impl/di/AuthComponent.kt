@@ -1,13 +1,17 @@
 package com.demo.modularization.feature.impl.di
 
-import com.demo.modularization.feature.api.di.AuthApi
-import com.demo.modularization.feature.impl.AuthFragment
+import com.demo.modularization.feature.api.AuthApi
+import com.demo.modularization.feature.impl.presentation.AuthFragment
 import dagger.Component
+import demo.com.core.api.CoreApi
 
 /**
  * @author Sergey Chuprin
  */
-@Component(modules = [AuthModule::class])
+@Component(
+    modules = [AuthModule::class],
+    dependencies = [AuthDependencies::class]
+)
 interface AuthComponent : AuthApi {
 
     fun inject(fragment: AuthFragment)
@@ -17,16 +21,24 @@ interface AuthComponent : AuthApi {
         private var component: AuthComponent? = null
 
         @Synchronized
-        fun initAndGet(): AuthComponent {
+        fun initAndGet(authDependencies: AuthDependencies): AuthComponent {
             if (component != null) return component!!
-            component = DaggerAuthComponent.create()
+            component = DaggerAuthComponent
+                .builder()
+                .authDependencies(authDependencies)
+                .build()
             return component!!
         }
+
+        fun get(): AuthComponent = requireNotNull(component)
 
         fun reset() {
             component = null
         }
 
     }
+
+    @Component(dependencies = [CoreApi::class])
+    interface AuthDependenciesComponent : AuthDependencies
 
 }
