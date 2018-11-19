@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="spark.ru.modularization.MainFragment"
+        android:name="com.demo.modularization.MainFragment"
         android:label="MainFragment">
 
         <action
