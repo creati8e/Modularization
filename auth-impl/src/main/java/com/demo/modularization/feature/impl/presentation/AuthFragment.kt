@@ -6,25 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.demo.feature_impl.R
-import com.demo.modularization.feature.impl.di.AuthComponent
+import com.demo.modularization.feature.impl.di.AuthComponentHolder
 import com.demo.modularization.feature.impl.domain.AuthGateway
+import demo.com.componentstore.BaseFragment
 import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 
 /**
  * @author Sergey Chuprin
  */
-class AuthFragment : Fragment() {
+class AuthFragment : BaseFragment<AuthComponentHolder>() {
 
     @Inject
     lateinit var authGateway: AuthGateway
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AuthComponent.get().inject(this)
-        Log.d("AuthFragment", AuthComponent.toString())
+        Log.d("AuthFragment", componentHolder.component.toString())
     }
 
     override fun onCreateView(
@@ -49,11 +48,8 @@ class AuthFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (isRemoving) {
-            AuthComponent.reset()
-        }
+    override fun provideComponent(savedInstanceState: Bundle?): AuthComponentHolder {
+        return AuthComponentHolder(requireActivity().application)
     }
 
 }

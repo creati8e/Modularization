@@ -22,6 +22,7 @@ dependencies {
 
     implementation project(':auth-api')
     implementation project(':core-api')
+    implementation project(':component-store')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 

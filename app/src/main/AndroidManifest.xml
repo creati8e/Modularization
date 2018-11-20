@@ -5,7 +5,7 @@
     package="com.demo.modularization">
 
     <application
-        android:name="com.demo.modularization.ModularizationApplication"
+        android:name=".ModularizationApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

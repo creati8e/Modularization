@@ -1,17 +1,12 @@
 package demo.com.core.impl.di
 
 import dagger.Component
-import demo.com.core.api.CoreApi
+import demo.com.core.api.DataSourcesProvider
+import javax.inject.Singleton
 
 /**
  * @author Sergey Chuprin
  */
+@Singleton
 @Component(modules = [CoreModule::class])
-abstract class CoreComponent : CoreApi {
-
-    companion object {
-
-        val instance: CoreComponent by lazy { DaggerCoreComponent.create() }
-
-    }
-}
+interface CoreComponent : DataSourcesProvider

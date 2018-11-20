@@ -1,24 +1,14 @@
 package com.demo.modularization.di
 
-import com.demo.modularization.ModularizationApplication
-import dagger.BindsInstance
 import dagger.Component
+import demo.com.core.api.AppContextProvider
+import demo.com.core.api.ApplicationProvider
+import demo.com.core.api.DataSourcesProvider
 import javax.inject.Singleton
 
 /**
  * @author Sergey Chuprin
  */
-@Component()
 @Singleton
-interface AppComponent {
-
-    @Component.Builder
-    interface Builder {
-
-        @BindsInstance
-        fun application(app: ModularizationApplication): Builder
-
-        fun build(): AppComponent
-    }
-
-}
+@Component(dependencies = [DataSourcesProvider::class, AppContextProvider::class])
+interface AppComponent : ApplicationProvider
