@@ -6,7 +6,7 @@ import demo.com.core.api.di.provider.ApplicationProvider
 /**
  * @author Sergey Chuprin
  */
-interface App {
+interface AppHolder {
 
     val appContext: Context
 

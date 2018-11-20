@@ -2,7 +2,7 @@ package demo.com.dashboard.impl.di
 
 import android.app.Application
 import demo.com.componentstore.FeatureComponent
-import demo.com.core.api.App
+import demo.com.core.api.AppHolder
 import demo.com.dashboard.impl.presentation.DashboardFragment
 
 /**
@@ -17,10 +17,9 @@ class DashboardComponentHolder(
     override fun inject(target: DashboardFragment) = component?.inject(target) ?: Unit
 
     override fun onCreate() {
-        val appProvider = (application as App).appProvider
         component = DaggerDashboardComponent
             .builder()
-            .appUtilsProvider(appProvider)
+            .appUtilsProvider((application as AppHolder).appProvider)
             .build()
     }
 

@@ -2,7 +2,7 @@ package demo.com.core.impl.di
 
 import dagger.BindsInstance
 import dagger.Component
-import demo.com.core.api.App
+import demo.com.core.api.AppHolder
 import demo.com.core.api.di.provider.AppUtilsProvider
 import javax.inject.Singleton
 
@@ -17,7 +17,7 @@ interface AppUtilsComponent : AppUtilsProvider {
     interface Builder {
 
         @BindsInstance
-        fun app(app: App): Builder
+        fun app(appHolder: AppHolder): Builder
 
         fun build(): AppUtilsComponent
     }

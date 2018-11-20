@@ -5,7 +5,7 @@ import android.content.Context
 import com.demo.modularization.di.AppComponent
 import com.demo.modularization.di.DaggerAppComponent
 import com.demo.modularization.di.DaggerNavigationComponent
-import demo.com.core.api.App
+import demo.com.core.api.AppHolder
 import demo.com.core.api.di.provider.ApplicationProvider
 import demo.com.core.impl.di.DaggerAppUtilsComponent
 import demo.com.core.impl.di.DaggerCoreComponent
@@ -15,7 +15,7 @@ import demo.com.navigation.NavigationProvider
 /**
  * @author Sergey Chuprin
  */
-class ModularizationApplication : Application(), App, NavigationHolder {
+class ModularizationApplication : Application(), AppHolder, NavigationHolder {
 
     private companion object {
         @Suppress("ObjectPropertyName")

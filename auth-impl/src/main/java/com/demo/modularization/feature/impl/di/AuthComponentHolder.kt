@@ -3,7 +3,7 @@ package com.demo.modularization.feature.impl.di
 import android.app.Application
 import com.demo.modularization.feature.impl.presentation.AuthFragment
 import demo.com.componentstore.FeatureComponent
-import demo.com.core.api.App
+import demo.com.core.api.AppHolder
 import demo.com.navigation.NavigationHolder
 
 /**
@@ -21,7 +21,7 @@ class AuthComponentHolder(
     override fun onCreate() {
         component = DaggerAuthComponent
             .builder()
-            .dataSourcesProvider((application as App).appProvider)
+            .dataSourcesProvider((application as AppHolder).appProvider)
             .navigationProvider((application as NavigationHolder).navigationProvider)
             .build()
     }
