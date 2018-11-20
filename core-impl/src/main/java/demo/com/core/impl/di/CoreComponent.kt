@@ -1,7 +1,7 @@
 package demo.com.core.impl.di
 
 import dagger.Component
-import demo.com.core.api.DataSourcesProvider
+import demo.com.core.api.di.provider.DataSourcesProvider
 import javax.inject.Singleton
 
 /**

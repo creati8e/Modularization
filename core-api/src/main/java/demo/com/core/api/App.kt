@@ -1,14 +1,15 @@
 package demo.com.core.api
 
 import android.content.Context
+import demo.com.core.api.di.provider.ApplicationProvider
 
 /**
  * @author Sergey Chuprin
  */
 interface App {
 
-    fun applicationContext(): Context
+    val appContext: Context
 
-    val applicationProvider: ApplicationProvider
+    val appProvider: ApplicationProvider
 
 }

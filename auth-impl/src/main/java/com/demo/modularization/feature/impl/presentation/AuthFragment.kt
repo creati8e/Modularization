@@ -1,15 +1,16 @@
 package com.demo.modularization.feature.impl.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.demo.feature_impl.R
 import com.demo.modularization.feature.impl.di.AuthComponentHolder
 import com.demo.modularization.feature.impl.domain.AuthGateway
 import demo.com.componentstore.BaseFragment
+import demo.com.navigation.actions.NavigateFromAuthToDashboard
 import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
 
@@ -18,13 +19,8 @@ import javax.inject.Inject
  */
 class AuthFragment : BaseFragment<AuthComponentHolder>() {
 
-    @Inject
-    lateinit var authGateway: AuthGateway
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("AuthFragment", componentHolder.component.toString())
-    }
+    @Inject lateinit var authGateway: AuthGateway
+    @Inject lateinit var navigateFromAuthToDashboard: NavigateFromAuthToDashboard
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,19 +33,15 @@ class AuthFragment : BaseFragment<AuthComponentHolder>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         signInButton.setOnClickListener {
-            val result = authGateway.signIn(
-                loginEditText.text.toString(),
-                passwordEditText.text.toString()
-            )
+            authGateway.signIn(loginEditText.text.toString(), passwordEditText.text.toString())
 
-            // TODO: Navigate to dashboard.
-            val message = if (result) "You are signed in" else "Error occurred"
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "You are signed in", Toast.LENGTH_SHORT).show()
+            navigateFromAuthToDashboard.navigate(view.findNavController())
         }
     }
 
     override fun provideComponent(savedInstanceState: Bundle?): AuthComponentHolder {
-        return AuthComponentHolder(requireActivity().application)
+        return AuthComponentHolder(application)
     }
 
 }

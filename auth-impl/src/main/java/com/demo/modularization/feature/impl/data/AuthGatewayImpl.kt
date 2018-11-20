@@ -1,9 +1,8 @@
 package com.demo.modularization.feature.impl.data
 
 import com.demo.modularization.feature.impl.domain.AuthGateway
-import demo.com.core.api.AuthDataSource
+import demo.com.core.api.data.AuthDataSource
 import java.util.*
-import java.util.concurrent.ThreadLocalRandom
 
 /**
  * @author Sergey Chuprin
@@ -13,12 +12,8 @@ class AuthGatewayImpl(
 ) : AuthGateway {
 
     @Suppress("UNUSED_PARAMETER")
-    override fun signIn(login: String, password: String): Boolean {
-        if (ThreadLocalRandom.current().nextInt() % 2 == 0) {
-            authDataSource.token = UUID.randomUUID().toString()
-            return true
-        }
-        return false
+    override fun signIn(login: String, password: String) {
+        authDataSource.token = UUID.randomUUID().toString()
     }
 
 }

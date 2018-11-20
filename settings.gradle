@@ -1,1 +1,1 @@
-include ':app', ':auth-api', ':auth-impl', ':core-api', ':core-impl', ':component-store'
+include ':app', ':auth-api', ':auth-impl', ':core-api', ':core-impl', ':component-store', ':dashboard-impl', ':dashboard-api', ':navigation'

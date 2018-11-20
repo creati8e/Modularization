@@ -43,6 +43,13 @@ configure(subprojects) {
             }
         }
     }
+
+    project.configurations.all {
+        resolutionStrategy {
+            force "androidx.cardview:cardview:1.0.0"
+            force "androidx.recyclerview:recyclerview:1.0.0"
+        }
+    }
 }
 
 task clean(type: Delete) {

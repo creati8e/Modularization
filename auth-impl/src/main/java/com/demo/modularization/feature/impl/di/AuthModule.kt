@@ -4,7 +4,7 @@ import com.demo.modularization.feature.impl.data.AuthGatewayImpl
 import com.demo.modularization.feature.impl.domain.AuthGateway
 import dagger.Module
 import dagger.Provides
-import demo.com.core.api.AuthDataSource
+import demo.com.core.api.data.AuthDataSource
 
 /**
  * @author Sergey Chuprin

@@ -3,19 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
+    android:label="Primary graph"
     app:startDestination="@id/mainFragment">
+
+    <include app:graph="@navigation/auth_navigation" />
+    <include app:graph="@navigation/dashboard_navigation" />
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.demo.modularization.MainFragment"
-        android:label="MainFragment">
+        android:label="MainFragment" />
 
-        <action
-            android:id="@+id/action_main_to_feature"
-            app:destination="@id/featureNavigation" />
+    <action
+        android:id="@+id/action_to_auth"
+        app:clearTask="true"
+        app:destination="@id/authNavigation" />
 
-    </fragment>
-
-    <include app:graph="@navigation/feature_navigation" />
+    <action
+        android:id="@+id/action_auth_to_dashboard"
+        app:clearTask="true"
+        app:destination="@id/dashboardNavigation" />
 
 </navigation>

@@ -1,5 +1,6 @@
 package demo.com.componentstore;
 
+import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
                 () -> provideComponent(savedInstanceState),
                 savedInstanceState
         );
+        //noinspection unchecked
         outlast.getOutlasting().inject(this);
     }
 
@@ -64,5 +66,9 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
      * Provide presentation model to use with this fragment.
      */
     protected abstract T provideComponent(@Nullable Bundle savedInstanceState);
+
+    protected Application getApplication() {
+        return requireActivity().getApplication();
+    }
 
 }

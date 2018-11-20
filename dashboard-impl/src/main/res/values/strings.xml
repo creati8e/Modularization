@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">dashboard</string>
+
+    <string-array name="dashboard_entries">
+        <item>Search</item>
+        <item>History</item>
+        <item>Records</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+    </string-array>
+</resources>

@@ -6,12 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import demo.com.navigation.actions.NavigateToAuth
 import kotlinx.android.synthetic.main.fragment_main.*
+import javax.inject.Inject
 
 /**
  * @author Sergey Chuprin
  */
 class MainFragment : Fragment() {
+
+    @Inject
+    lateinit var navigateToAuth: NavigateToAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (requireActivity().application as ModularizationApplication).component.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,9 +33,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startFeatureBtn.setOnClickListener {
-            view.findNavController().navigate(R.id.action_main_to_feature)
-        }
+        startFeatureBtn.setOnClickListener { navigateToAuth.navigate(view.findNavController()) }
     }
 
 }

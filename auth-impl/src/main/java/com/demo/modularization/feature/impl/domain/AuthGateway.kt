@@ -5,6 +5,6 @@ package com.demo.modularization.feature.impl.domain
  */
 interface AuthGateway {
 
-    fun signIn(login: String, password: String): Boolean
+    fun signIn(login: String, password: String)
 
 }
