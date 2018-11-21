@@ -9,7 +9,6 @@ import androidx.navigation.findNavController
 import com.demo.feature_impl.R
 import com.demo.modularization.feature.impl.di.AuthComponentHolder
 import com.demo.modularization.feature.impl.domain.AuthGateway
-import demo.com.componentstore.BaseFragment
 import demo.com.navigation.actions.NavigateFromAuthToDashboard
 import kotlinx.android.synthetic.main.fragment_auth.*
 import javax.inject.Inject
@@ -17,7 +16,7 @@ import javax.inject.Inject
 /**
  * @author Sergey Chuprin
  */
-class AuthFragment : BaseFragment<AuthComponentHolder>() {
+class AuthFragment : demo.com.utils.ui.BaseFragment<AuthComponentHolder>() {
 
     @Inject lateinit var authGateway: AuthGateway
     @Inject lateinit var navigateFromAuthToDashboard: NavigateFromAuthToDashboard
@@ -40,7 +39,7 @@ class AuthFragment : BaseFragment<AuthComponentHolder>() {
         }
     }
 
-    override fun provideComponent(savedInstanceState: Bundle?): AuthComponentHolder {
+    override fun provideComponent(arguments: Bundle?): AuthComponentHolder {
         return AuthComponentHolder(application)
     }
 

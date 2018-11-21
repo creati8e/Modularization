@@ -2,9 +2,9 @@ package com.demo.modularization.feature.impl.di
 
 import android.app.Application
 import com.demo.modularization.feature.impl.presentation.AuthFragment
-import demo.com.componentstore.FeatureComponent
 import demo.com.core.api.AppHolder
 import demo.com.navigation.NavigationHolder
+import demo.com.utils.ui.FeatureComponent
 
 /**
  * @author Sergey Chuprin

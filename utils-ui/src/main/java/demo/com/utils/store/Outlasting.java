@@ -1,4 +1,4 @@
-package demo.com.componentstore;
+package demo.com.utils.store;
 
 /**
  * @author Vasili Chyrvon (vasili.chyrvon@gmail.com)

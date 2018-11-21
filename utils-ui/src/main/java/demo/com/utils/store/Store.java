@@ -1,4 +1,4 @@
-package demo.com.componentstore;
+package demo.com.utils.store;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,9 +1,10 @@
 package demo.com.dashboard.impl.di
 
 import android.app.Application
-import demo.com.componentstore.FeatureComponent
 import demo.com.core.api.AppHolder
 import demo.com.dashboard.impl.presentation.DashboardFragment
+import demo.com.navigation.NavigationHolder
+import demo.com.utils.ui.FeatureComponent
 
 /**
  * @author Sergey Chuprin
@@ -20,6 +21,7 @@ class DashboardComponentHolder(
         component = DaggerDashboardComponent
             .builder()
             .appUtilsProvider((application as AppHolder).appProvider)
+            .navigationProvider((application as NavigationHolder).navigationProvider)
             .build()
     }
 

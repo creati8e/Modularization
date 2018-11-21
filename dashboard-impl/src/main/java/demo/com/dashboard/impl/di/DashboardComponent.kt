@@ -4,6 +4,7 @@ import dagger.Component
 import demo.com.core.api.di.provider.AppUtilsProvider
 import demo.com.core.api.di.scope.PerFeature
 import demo.com.dashboard.impl.presentation.DashboardFragment
+import demo.com.navigation.NavigationProvider
 
 /**
  * @author Sergey Chuprin
@@ -11,7 +12,7 @@ import demo.com.dashboard.impl.presentation.DashboardFragment
 @PerFeature
 @Component(
     modules = [DashboardModule::class],
-    dependencies = [AppUtilsProvider::class]
+    dependencies = [AppUtilsProvider::class, NavigationProvider::class]
 )
 interface DashboardComponent {
 

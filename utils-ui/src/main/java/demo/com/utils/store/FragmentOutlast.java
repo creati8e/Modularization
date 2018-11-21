@@ -1,4 +1,4 @@
-package demo.com.componentstore;
+package demo.com.utils.store;
 
 import android.os.Bundle;
 
@@ -13,7 +13,7 @@ public class FragmentOutlast<T extends Outlasting> extends Outlast<T> {
 
     private Fragment fragment;
 
-    FragmentOutlast(
+    public FragmentOutlast(
             @NonNull Fragment fragment,
             @NonNull Outlasting.Creator<T> creator,
             @Nullable Bundle savedInstanceState

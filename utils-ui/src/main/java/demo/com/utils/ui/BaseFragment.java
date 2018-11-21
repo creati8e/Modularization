@@ -1,4 +1,4 @@
-package demo.com.componentstore;
+package demo.com.utils.ui;
 
 import android.app.Application;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import demo.com.utils.store.FragmentOutlast;
 
 public abstract class BaseFragment<T extends FeatureComponent> extends Fragment {
 
@@ -19,7 +20,7 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
         // Create the outlast delegate providing Outlasting and instance state.
         outlast = new FragmentOutlast<>(
                 this,
-                () -> provideComponent(savedInstanceState),
+                () -> provideComponent(getArguments()),
                 savedInstanceState
         );
         //noinspection unchecked
@@ -65,7 +66,7 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
     /**
      * Provide presentation model to use with this fragment.
      */
-    protected abstract T provideComponent(@Nullable Bundle savedInstanceState);
+    protected abstract T provideComponent(@Nullable Bundle arguments);
 
     protected Application getApplication() {
         return requireActivity().getApplication();

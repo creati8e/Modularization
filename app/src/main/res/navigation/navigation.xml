@@ -31,6 +31,11 @@
         tools:ignore="InvalidNavigation">
 
         <include app:graph="@navigation/dashboard_navigation" />
+        <include app:graph="@navigation/settings_navigation" />
+
+        <action
+            android:id="@+id/action_dashboard_to_settings"
+            app:destination="@+id/settingsNavigation" />
 
     </navigation>
 

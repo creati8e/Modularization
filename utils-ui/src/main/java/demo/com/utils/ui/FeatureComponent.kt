@@ -1,4 +1,6 @@
-package demo.com.componentstore
+package demo.com.utils.ui
+
+import demo.com.utils.store.Outlasting
 
 /**
  * @author Sergey Chuprin

@@ -1,10 +1,12 @@
 package com.demo.modularization.di
 
 import com.demo.modularization.navigation.NavigateFromAuthToDashboardImpl
+import com.demo.modularization.navigation.NavigateFromDashboardToSettingsImpl
 import com.demo.modularization.navigation.NavigateToAuthImpl
 import dagger.Module
 import dagger.Provides
 import demo.com.navigation.actions.NavigateFromAuthToDashboard
+import demo.com.navigation.actions.NavigateFromDashboardToSettings
 import demo.com.navigation.actions.NavigateToAuth
 
 /**
@@ -20,5 +22,10 @@ class NavigationModule {
 
     @Provides
     fun provideNavigateToAuth(): NavigateToAuth = NavigateToAuthImpl()
+
+    @Provides
+    fun provideNavigateFromDashboardToSettings(): NavigateFromDashboardToSettings {
+        return NavigateFromDashboardToSettingsImpl()
+    }
 
 }
