@@ -20,7 +20,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':auth-api')
     implementation project(':core-api')
     implementation project(":navigation")
     implementation project(':utils-ui')
