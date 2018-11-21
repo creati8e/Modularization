@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_action_purchase"
+        android:icon="@drawable/ic_store"
+        android:title="Purchase"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+
+</menu>

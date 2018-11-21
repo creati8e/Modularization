@@ -1,9 +1,8 @@
 package demo.com.dashboard.impl.presentation
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import demo.com.dashboard.R
@@ -12,6 +11,7 @@ import demo.com.dashboard.impl.domain.gateway.DashboardGateway
 import demo.com.dashboard.impl.presentation.adapter.DashboardEntryDiffCallback
 import demo.com.dashboard.impl.presentation.adapter.renderer.DashboardEntryRenderer
 import demo.com.navigation.actions.NavigateFromDashboardToSettings
+import demo.com.purchase.api.domain.interactor.PurchaseGateway
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import serg.chuprin.adapter.DiffMultiViewAdapter
 import javax.inject.Inject
@@ -21,11 +21,17 @@ import javax.inject.Inject
  */
 class DashboardFragment : demo.com.utils.ui.BaseFragment<DashboardComponentHolder>() {
 
+    @Inject lateinit var purchaseGateway: PurchaseGateway
     @Inject lateinit var dashboardGateway: DashboardGateway
     @Inject lateinit var navigateFromDashboardToSettings: NavigateFromDashboardToSettings
 
     private val entriesAdapter = DiffMultiViewAdapter(DashboardEntryDiffCallback()).apply {
         registerRenderer(DashboardEntryRenderer())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -47,6 +53,20 @@ class DashboardFragment : demo.com.utils.ui.BaseFragment<DashboardComponentHolde
         entriesAdapter.clickListener = { _, _, _ ->
             navigateFromDashboardToSettings.navigate(view.findNavController())
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_dashboard, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_action_purchase) {
+            if (purchaseGateway.purchase("premium")) {
+                Toast.makeText(requireContext(), "Purchased", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun provideComponent(arguments: Bundle?): DashboardComponentHolder {

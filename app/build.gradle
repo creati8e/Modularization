@@ -23,6 +23,8 @@ dependencies {
     implementation project(':auth')
     implementation project(":core-impl")
     implementation project(":core-api")
+    implementation project(":purchase-api")
+    implementation project(":purchase-impl")
     implementation project(':dashboard')
     implementation project(":navigation")
     implementation project(":settings")

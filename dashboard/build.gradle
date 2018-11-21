@@ -23,6 +23,7 @@ dependencies {
 
     implementation project(':utils-ui')
     implementation project(":core-api")
+    implementation project(":purchase-api")
     implementation project(":navigation")
 
     implementation 'androidx.cardview:cardview:1.0.0'
