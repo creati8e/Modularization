@@ -20,14 +20,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':auth')
-    implementation project(":core-impl")
+    // Core.
     implementation project(":core-api")
-    implementation project(":purchase-api")
-    implementation project(":purchase-impl")
-    implementation project(':dashboard')
-    implementation project(":navigation")
-    implementation project(":settings")
+    implementation project(":core-impl")
+    implementation project(':core-navigation')
+
+    // Features.
+    implementation project(':feature-auth')
+    implementation project(':feature-settings')
+    implementation project(':feature-dashboard')
+    implementation project(':feature-purchase-api')
+    implementation project(':feature-purchase-impl')
 
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'

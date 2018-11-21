@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.demo.modularization.MainFragment"
+        android:name="com.demo.app.MainFragment"
         android:label="MainFragment" />
 
     <action

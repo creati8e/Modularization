@@ -63,8 +63,9 @@ import guru.nidi.graphviz.attribute.Style
 
 plugins.apply(DependencyGraphGeneratorPlugin)
 
+//task name is generateDependencyGraphModules
 def modulesGenerator = new Generator(
-        "modules", // Suffix for our Gradle task.
+        "Modules", // Suffix for our Gradle task.
         { dependency ->
             def with = dependency.getModuleGroup().startsWith("Modularization")
             if (with) {
