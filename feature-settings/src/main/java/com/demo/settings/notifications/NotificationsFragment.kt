@@ -48,7 +48,7 @@ class NotificationsFragment : BaseFragment<NotificationsComponentHolder>() {
         }
     }
 
-    override fun provideComponent(arguments: Bundle?): NotificationsComponentHolder {
+    override fun provideComponentHolder(arguments: Bundle?): NotificationsComponentHolder {
         val provider = (parentFragment as SettingsProviderHolder).settingsProvider
         return NotificationsComponentHolder(provider)
     }

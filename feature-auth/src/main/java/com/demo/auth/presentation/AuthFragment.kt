@@ -40,7 +40,7 @@ class AuthFragment : BaseFragment<AuthComponentHolder>() {
         }
     }
 
-    override fun provideComponent(arguments: Bundle?): AuthComponentHolder {
+    override fun provideComponentHolder(arguments: Bundle?): AuthComponentHolder {
         return AuthComponentHolder(application)
     }
 

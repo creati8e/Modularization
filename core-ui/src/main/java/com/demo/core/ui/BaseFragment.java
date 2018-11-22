@@ -21,7 +21,7 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
         // Create the outlast delegate providing Outlasting and instance state.
         outlast = new FragmentOutlast<>(
                 this,
-                () -> provideComponent(getArguments()),
+                () -> provideComponentHolder(getArguments()),
                 savedInstanceState
         );
         //noinspection unchecked
@@ -67,7 +67,7 @@ public abstract class BaseFragment<T extends FeatureComponent> extends Fragment 
     /**
      * Provide presentation model to use with this fragment.
      */
-    protected abstract T provideComponent(@Nullable Bundle arguments);
+    protected abstract T provideComponentHolder(@Nullable Bundle arguments);
 
     protected Application getApplication() {
         return requireActivity().getApplication();

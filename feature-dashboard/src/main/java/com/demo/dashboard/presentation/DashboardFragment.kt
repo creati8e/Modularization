@@ -70,7 +70,7 @@ class DashboardFragment : BaseFragment<DashboardComponentHolder>() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun provideComponent(arguments: Bundle?): DashboardComponentHolder {
+    override fun provideComponentHolder(arguments: Bundle?): DashboardComponentHolder {
         return DashboardComponentHolder(application)
     }
 

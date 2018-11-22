@@ -47,7 +47,7 @@ class UserInfoFragment : BaseFragment<UserInfoComponentHolder>() {
         }
     }
 
-    override fun provideComponent(arguments: Bundle?): UserInfoComponentHolder {
+    override fun provideComponentHolder(arguments: Bundle?): UserInfoComponentHolder {
         val provider = (parentFragment as SettingsProviderHolder).settingsProvider
         return UserInfoComponentHolder(provider)
     }

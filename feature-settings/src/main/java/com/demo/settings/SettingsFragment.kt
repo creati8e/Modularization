@@ -53,7 +53,7 @@ class SettingsFragment :
 
     override fun navigateToNotifications() = navigate(NotificationsFragment())
 
-    override fun provideComponent(arguments: Bundle?): SettingsComponentHolder {
+    override fun provideComponentHolder(arguments: Bundle?): SettingsComponentHolder {
         return SettingsComponentHolder(application)
     }
 

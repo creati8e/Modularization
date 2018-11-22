@@ -27,16 +27,18 @@ dependencies {
 
     implementation project(':feature-purchase-api')
 
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "androidx.cardview:cardview:$androidx_version"
+    implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation "serg.chuprin:multiviewadapter:1.3.0"
-    implementation "serg.chuprin:multiviewadapter-kt-extensions:1.3.0"
+    def multiviewadapter_version = "1.3.0"
 
-    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "serg.chuprin:multiviewadapter:$multiviewadapter_version"
+    implementation "serg.chuprin:multiviewadapter-kt-extensions:$multiviewadapter_version"
+
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
 
-    implementation 'com.google.dagger:dagger:2.16'
-    kapt 'com.google.dagger:dagger-compiler:2.16'
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
