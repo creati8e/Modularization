@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.demo.core.api.presentation.CanHandleBackPress
-import com.demo.core.api.ui.BaseFragment
-import com.demo.feature.settings.common.di.SettingsComponentHolder
+import com.demo.core.api.viewmodel.componentViewModel
+import com.demo.feature.settings.common.di.SettingsComponent
 import com.demo.feature.settings.common.di.SettingsTools
 import com.demo.feature.settings.notifications.NotificationsFragment
 import com.demo.feature.settings.user.UserInfoFragment
@@ -16,12 +16,14 @@ import com.demo.feature.settings.user.UserInfoFragment
  * @author Sergey Chuprin
  */
 class SettingsFragment :
-    BaseFragment<SettingsComponentHolder>(),
+    Fragment(),
     SettingsFragmentNavigator,
     CanHandleBackPress,
     SettingsToolsHolder {
 
-    override val settingsTools: SettingsTools get() = componentHolder.component
+    override val settingsTools: SettingsTools get() = componentVm.component
+
+    private val componentVm by componentViewModel { SettingsComponent.provide() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,10 +54,6 @@ class SettingsFragment :
     override fun navigateToUserInfo() = navigate(UserInfoFragment())
 
     override fun navigateToNotifications() = navigate(NotificationsFragment())
-
-    override fun provideComponentHolder(arguments: Bundle?): SettingsComponentHolder {
-        return SettingsComponentHolder()
-    }
 
     override fun navigateBack() {
         handleBackPress()

@@ -11,6 +11,15 @@ import dagger.Component
 @Component(dependencies = [SettingsTools::class])
 interface UserInfoComponent {
 
+    companion object {
+        fun provide(settingsTools: SettingsTools): UserInfoComponent {
+            return DaggerUserInfoComponent
+                .builder()
+                .settingsTools(settingsTools)
+                .build()
+        }
+    }
+
     fun inject(fragment: UserInfoFragment)
 
 }

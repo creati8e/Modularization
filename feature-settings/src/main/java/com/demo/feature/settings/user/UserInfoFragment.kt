@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.demo.core.api.ui.BaseFragment
+import androidx.fragment.app.Fragment
+import com.demo.core.api.viewmodel.componentViewModel
 import com.demo.feature.settings.R
 import com.demo.feature.settings.SettingsFragmentNavigator
 import com.demo.feature.settings.SettingsToolsHolder
@@ -16,12 +17,22 @@ import javax.inject.Inject
 /**
  * @author Sergey Chuprin
  */
-class UserInfoFragment : BaseFragment<UserInfoComponentHolder>() {
+class UserInfoFragment : Fragment() {
 
     @Inject lateinit var settingsGateway: SettingsGateway
 
+    private val componentViewModel by componentViewModel {
+        val settingsTools = (parentFragment as SettingsToolsHolder).settingsTools
+        UserInfoComponent.provide(settingsTools)
+    }
+
     private val navigator: SettingsFragmentNavigator
         get() = parentFragment as SettingsFragmentNavigator
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        componentViewModel.component.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,11 +56,6 @@ class UserInfoFragment : BaseFragment<UserInfoComponentHolder>() {
             )
             navigator.navigateBack()
         }
-    }
-
-    override fun provideComponentHolder(arguments: Bundle?): UserInfoComponentHolder {
-        val provider = (parentFragment as SettingsToolsHolder).settingsTools
-        return UserInfoComponentHolder(provider)
     }
 
 }

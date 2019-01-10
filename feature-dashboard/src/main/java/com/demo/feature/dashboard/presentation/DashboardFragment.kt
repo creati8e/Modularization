@@ -3,12 +3,13 @@ package com.demo.feature.dashboard.presentation
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.demo.core.api.presentation.navigation.actions.NavigateFromDashboardToSettings
-import com.demo.core.api.ui.BaseFragment
+import com.demo.core.api.viewmodel.componentViewModel
 import com.demo.feature.dashboard.R
-import com.demo.feature.dashboard.di.DashboardComponentHolder
+import com.demo.feature.dashboard.di.DashboardComponent
 import com.demo.feature.dashboard.domain.gateway.DashboardGateway
 import com.demo.feature.dashboard.presentation.adapter.DashboardEntryDiffCallback
 import com.demo.feature.dashboard.presentation.adapter.renderer.DashboardEntryRenderer
@@ -20,11 +21,13 @@ import javax.inject.Inject
 /**
  * @author Sergey Chuprin
  */
-class DashboardFragment : BaseFragment<DashboardComponentHolder>() {
+class DashboardFragment : Fragment() {
 
     @Inject lateinit var purchaseGateway: PurchaseGateway
     @Inject lateinit var dashboardGateway: DashboardGateway
     @Inject lateinit var navigateFromDashboardToSettings: NavigateFromDashboardToSettings
+
+    private val componentViewModel by componentViewModel { DashboardComponent.provide() }
 
     private val entriesAdapter = DiffMultiViewAdapter(DashboardEntryDiffCallback()).apply {
         registerRenderer(DashboardEntryRenderer())
@@ -33,6 +36,7 @@ class DashboardFragment : BaseFragment<DashboardComponentHolder>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        componentViewModel.component.inject(this)
     }
 
     override fun onCreateView(
@@ -68,10 +72,6 @@ class DashboardFragment : BaseFragment<DashboardComponentHolder>() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun provideComponentHolder(arguments: Bundle?): DashboardComponentHolder {
-        return DashboardComponentHolder()
     }
 
 }

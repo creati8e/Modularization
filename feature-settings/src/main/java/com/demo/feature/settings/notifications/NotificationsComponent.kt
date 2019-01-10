@@ -11,6 +11,15 @@ import dagger.Component
 @Component(dependencies = [SettingsTools::class])
 interface NotificationsComponent {
 
+    companion object {
+        fun provide(settingsTools: SettingsTools): NotificationsComponent {
+            return DaggerNotificationsComponent
+                .builder()
+                .settingsTools(settingsTools)
+                .build()
+        }
+    }
+
     fun inject(fragment: NotificationsFragment)
 
 }
