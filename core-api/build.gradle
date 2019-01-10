@@ -18,4 +18,14 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$androidx_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+
+    def viewModelVer = "2.0.0"
+    def lifecycleExtVer = "2.0.0"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVer"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtVer"
+
 }

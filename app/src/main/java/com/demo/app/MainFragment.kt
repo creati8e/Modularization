@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.demo.core.navigation.actions.NavigateToAuth
+import com.demo.core.api.presentation.navigation.actions.NavigateToAuth
 import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity().application as ModularizationApplication).component.inject(this)
+        ModularizationApplication.component.inject(this)
     }
 
     override fun onCreateView(

@@ -1,11 +1,8 @@
 package com.demo.app.di
 
 import com.demo.app.MainFragment
-import com.demo.core.api.di.provider.AppUtilsProvider
-import com.demo.core.api.di.provider.ApplicationProvider
-import com.demo.core.api.di.provider.DataSourcesProvider
-import com.demo.core.navigation.NavigationProvider
-import com.demo.purchase.api.di.PurchaseApi
+import com.demo.core.api.di.tools.AppTools
+import com.demo.core.api.di.tools.NavigationTools
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,13 +12,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     dependencies = [
-        PurchaseApi::class,
-        AppUtilsProvider::class,
-        NavigationProvider::class,
-        DataSourcesProvider::class
+        AppTools::class,
+        NavigationTools::class
     ]
 )
-interface AppComponent : ApplicationProvider, NavigationProvider, PurchaseApi {
+interface AppComponent {
 
     fun inject(mainFragment: MainFragment)
 

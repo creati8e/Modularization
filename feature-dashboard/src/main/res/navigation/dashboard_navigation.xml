@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.demo.dashboard.presentation.DashboardFragment"
+        android:name="com.demo.feature.dashboard.presentation.DashboardFragment"
         android:label="DashboardFragment" />
 
 </navigation>

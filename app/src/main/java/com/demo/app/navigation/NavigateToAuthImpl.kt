@@ -2,7 +2,7 @@ package com.demo.app.navigation
 
 import androidx.navigation.NavController
 import com.demo.app.R
-import com.demo.core.navigation.actions.NavigateToAuth
+import com.demo.core.api.presentation.navigation.actions.NavigateToAuth
 
 /**
  * @author Sergey Chuprin

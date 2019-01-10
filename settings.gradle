@@ -1,1 +1,1 @@
-include ':app', ':feature-auth', ':core-api', ':core-impl', ':feature-dashboard', ':core-navigation', ':feature-settings', ':core-ui', ':feature-purchase-api', ':feature-purchase-impl'
+include ':app', ':feature-auth', ':core-api', ':core-impl', ':feature-dashboard', ':feature-settings',':feature-purchase-api', ':feature-purchase-impl', ':injector', ':injector-dashboard'

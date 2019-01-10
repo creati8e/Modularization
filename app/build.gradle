@@ -23,18 +23,18 @@ dependencies {
     // Core.
     implementation project(":core-api")
     implementation project(":core-impl")
-    implementation project(':core-navigation')
+
+    implementation project(":injector")
 
     // Features.
     implementation project(':feature-auth')
     implementation project(':feature-settings')
     implementation project(':feature-dashboard')
     implementation project(':feature-purchase-api')
-    implementation project(':feature-purchase-impl')
 
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$androidx_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.demo.auth.presentation.AuthFragment"
+        android:name="com.demo.feature.auth.presentation.AuthFragment"
         android:label="AuthFragment" />
 
 </navigation>

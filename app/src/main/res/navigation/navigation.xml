@@ -16,13 +16,14 @@
 
     <action
         android:id="@+id/action_to_auth"
-        app:clearTask="true"
-        app:destination="@id/authNavigation" />
+        app:destination="@id/authNavigation"
+        app:popUpTo="@id/navigation" />
 
     <action
         android:id="@+id/action_auth_to_dashboard"
-        app:clearTask="true"
-        app:destination="@id/authorizedNavigation" />
+        app:destination="@id/authorizedNavigation"
+        app:popUpTo="@id/authorizedNavigation"
+        app:popUpToInclusive="true" />
 
     <navigation
         android:id="@+id/authorizedNavigation"

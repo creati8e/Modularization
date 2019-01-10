@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.demo.settings.SettingsFragment"
+        android:name="com.demo.feature.settings.SettingsFragment"
         android:label="SettingsFragment" />
 
 </navigation>
